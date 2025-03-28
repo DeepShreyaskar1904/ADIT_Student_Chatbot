@@ -1,0 +1,598 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Student Chatbot</title>-->
+<!--    <style>-->
+<!--        body { font-family: Arial, sans-serif; }-->
+<!--        .chat-container { width: 50%; margin: auto; }-->
+<!--        .chat-box { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: scroll; }-->
+<!--        .user-message { color: blue; }-->
+<!--        .bot-message { color: green; }-->
+<!--        input { width: 80%; padding: 5px; }-->
+<!--        button { padding: 5px; }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="chat-container">-->
+<!--        <h2>Student Chatbot</h2>-->
+<!--        <div class="chat-box" id="chat-box"></div>-->
+<!--        <input type="text" id="user-input" placeholder="Type a message...">-->
+<!--        <button onclick="sendMessage()">Send</button>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        function sendMessage() {-->
+<!--            let userInput = document.getElementById("user-input").value;-->
+<!--            document.getElementById("chat-box").innerHTML += "<p class='user-message'><b>You:</b> " + userInput + "</p>";-->
+
+<!--            fetch("/api/chat/", {-->
+<!--                method: "POST",-->
+<!--                headers: { "Content-Type": "application/json" },-->
+<!--                body: JSON.stringify({ message: userInput }),-->
+<!--            })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                document.getElementById("chat-box").innerHTML += "<p class='bot-message'><b>Bot:</b> " + data.reply + "</p>";-->
+<!--            });-->
+
+<!--            document.getElementById("user-input").value = "";-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Student Chatbot</title>-->
+<!--    <link rel="icon" href="C:\Users\HP\OneDrive\Desktop\mini project\logo1.png" type="image/x-icon">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color:black;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+<!--        .chat-container {-->
+<!--            width: 100%;-->
+<!--            max-width: 500px;-->
+<!--            background: white;-->
+<!--            padding: 20px;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+<!--        .chat-box {-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border-radius: 5px;-->
+<!--            background: #fff;-->
+<!--        }-->
+<!--        .user-message {-->
+<!--            color: blue;-->
+<!--            text-align: right;-->
+<!--        }-->
+<!--        .bot-message {-->
+<!--            color: green;-->
+<!--            text-align: left;-->
+<!--        }-->
+<!--        .input-container {-->
+<!--            display: flex;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
+<!--        input {-->
+<!--            flex: 1;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--            outline: none;-->
+<!--        }-->
+<!--        button {-->
+<!--            padding: 10px;-->
+<!--            border: none;-->
+<!--            background: blue;-->
+<!--            color: white;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            margin-left: 5px;-->
+<!--        }-->
+<!--        button:hover {-->
+<!--            background: darkblue;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!-- <div class="chat-container">-->
+<!--        <h2>Student Chatbot</h2>-->
+<!--        <div class="chat-box" id="chat-box"></div>-->
+<!--        <div class="input-container">-->
+<!--            <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">-->
+<!--            <button onclick="sendMessage()">Send</button>-->
+
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        function sendMessage() {-->
+<!--            let userInput = document.getElementById("user-input").value.trim();-->
+<!--            if (!userInput) return;-->
+
+<!--            let chatBox = document.getElementById("chat-box");-->
+<!--            chatBox.innerHTML += `<p class='user-message'><b>You:</b> ${userInput}</p>`;-->
+<!--            chatBox.scrollTop = chatBox.scrollHeight;-->
+
+<!--            fetch("/api/chat/", {-->
+<!--                method: "POST",-->
+<!--                headers: { "Content-Type": "application/json" },-->
+<!--                body: JSON.stringify({ message: userInput }),-->
+<!--            })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                chatBox.innerHTML += `<p class='bot-message'><b>Bot:</b> ${data.reply}</p>`;-->
+<!--                chatBox.scrollTop = chatBox.scrollHeight;-->
+<!--            })-->
+<!--            .catch(error => console.error("Error:", error));-->
+
+<!--            document.getElementById("user-input").value = "";-->
+<!--        }-->
+
+<!--        function handleKeyPress(event) {-->
+<!--            if (event.key === "Enter") {-->
+<!--                sendMessage();-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--final code which works exaclty -->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Student Chatbot</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--         background-url("C:\Users\HP\Downloads\logo1.ico");-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: black;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+<!--        .chat-container img {-->
+<!--            display: block;   /* Ensure it is displayed */-->
+<!--            max-width: 100%;   /* Ensure the image scales properly */-->
+<!--            height: auto;      /* Maintain aspect ratio */-->
+<!--        }-->
+
+<!--        .chat-container {-->
+<!--            width: 100%;-->
+<!--            max-width: 500px;-->
+<!--            background: white;-->
+<!--            padding: 20px;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--            background-image: url('C:\Users\HP\OneDrive\Desktop\logo1.png');-->
+<!--            background-size: cover;-->
+<!--            background-position: center;-->
+<!--        }-->
+<!--        .chat-box {-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border-radius: 5px;-->
+<!--            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */-->
+<!--        }-->
+<!--        .user-message {-->
+<!--            color: blue;-->
+<!--            text-align: right;-->
+<!--        }-->
+<!--        .bot-message {-->
+<!--            color: green;-->
+<!--            text-align: left;-->
+<!--        }-->
+<!--        .input-container {-->
+<!--            display: flex;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
+<!--        input {-->
+<!--            flex: 1;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--            outline: none;-->
+<!--        }-->
+<!--        button {-->
+<!--            padding: 10px;-->
+<!--            border: none;-->
+<!--            background: black;-->
+<!--            color: white;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            margin-left: 5px;-->
+<!--        }-->
+<!--        button:hover {-->
+<!--            background: darkblue;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body><div class="chat-container">-->
+<!--    <h2><img src='C:\Users\HP\PycharmProjects\cbot\chatbot_project\chatbot\templates' alt="" height="30" width="30"> Student Chatbot</h2>-->
+<!--    <div class="chat-box" id="chat-box"></div>-->
+<!--    <div class="input-container">-->
+<!--        <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">-->
+<!--        <button onclick="sendMessage()">Send</button>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--    <script>-->
+<!--        function sendMessage() {-->
+<!--            let userInput = document.getElementById("user-input").value.trim();-->
+<!--            if (!userInput) return;-->
+
+<!--            let chatBox = document.getElementById("chat-box");-->
+<!--            chatBox.innerHTML += `<p class='user-message'><b>You:</b> ${userInput}</p>`;-->
+<!--            chatBox.scrollTop = chatBox.scrollHeight;-->
+
+<!--            fetch("/api/chatbot/", {-->
+<!--                method: "POST",-->
+<!--                headers: { "Content-Type": "application/json" },-->
+<!--                body: JSON.stringify({ message: userInput }),-->
+<!--            })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                chatBox.innerHTML += `<p class='bot-message'><b>Bot:</b> ${data.reply}</p>`;-->
+<!--                chatBox.scrollTop = chatBox.scrollHeight;-->
+<!--            })-->
+<!--            .catch(error => console.error("Error:", error));-->
+
+<!--            document.getElementById("user-input").value = "";-->
+<!--        }-->
+
+<!--        function handleKeyPress(event) {-->
+<!--            if (event.key === "Enter") {-->
+<!--                sendMessage();-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Student Chatbot</title>-->
+
+<!--    &lt;!&ndash; Favicon for the browser tab &ndash;&gt;-->
+<!--    <link rel="icon" href="C:\Users\HP\OneDrive\Desktop\logo1.png" type="image/png"> &lt;!&ndash; Correct the path as needed &ndash;&gt;-->
+
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: black; /* Set the background color to black */-->
+<!--            background-image: url("C:\Users\HP\OneDrive\Desktop\logo1.png"); /* Replace with your background image */-->
+<!--            background-size: cover; /* Make sure the image covers the entire background */-->
+<!--            background-position: center; /* Center the background image */-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        .chat-container {-->
+<!--            width: 100%;-->
+<!--            max-width: 500px;-->
+<!--            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for chat container */-->
+<!--            padding: 20px;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+
+<!--        .chat-box {-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border-radius: 5px;-->
+<!--            background: rgba(255, 255, 255, 0.85);-->
+<!--        }-->
+
+<!--        .user-message {-->
+<!--            color: blue;-->
+<!--            text-align: right;-->
+<!--        }-->
+
+<!--        .bot-message {-->
+<!--            color: green;-->
+<!--            text-align: left;-->
+<!--        }-->
+
+<!--        .input-container {-->
+<!--            display: flex;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
+
+<!--        input {-->
+<!--            flex: 1;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--            outline: none;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            padding: 10px;-->
+<!--            border: none;-->
+<!--            background: blue;-->
+<!--            color: white;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            margin-left: 5px;-->
+<!--        }-->
+
+<!--        button:hover {-->
+<!--            background:;-->
+<!--        }-->
+
+<!--        /* Styling for the title and logo */-->
+<!--        .title-container {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+
+<!--        .title-container img {-->
+<!--            width: 30px; /* Set the logo width */-->
+<!--            height: auto; /* Maintain aspect ratio */-->
+<!--            margin-right: 10px; /* Space between logo and title */-->
+<!--        }-->
+
+<!--        h2 {-->
+<!--            margin: 0;-->
+<!--            font-size: 24px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="chat-container">-->
+<!--        &lt;!&ndash; Title and Logo &ndash;&gt;-->
+<!--        <div class="title-container">-->
+<!--            <img src="C:\Users\HP\OneDrive\Desktop\logo1.png" alt="Logo">  &lt;!&ndash; Path to logo &ndash;&gt;-->
+<!--            <h2>Student Chatbot</h2>-->
+<!--        </div>-->
+
+<!--        <div class="chat-box" id="chat-box"></div>-->
+<!--        <div class="input-container">-->
+<!--            <input type="text" id="user-input" placeholder="Ask me anything..." onkeypress="handleKeyPress(event)">-->
+<!--            <button onclick="sendMessage()">Send</button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        function sendMessage() {-->
+<!--            let userInput = document.getElementById("user-input").value.trim();-->
+<!--            if (!userInput) return;-->
+
+<!--            let chatBox = document.getElementById("chat-box");-->
+<!--            chatBox.innerHTML += `<p class='user-message'><b>You:</b> ${userInput}</p>`;-->
+<!--            chatBox.scrollTop = chatBox.scrollHeight;-->
+
+<!--            fetch("/api/chatbot/", {-->
+<!--                method: "POST",-->
+<!--                headers: { "Content-Type": "application/json" },-->
+<!--                body: JSON.stringify({ query: userInput }),-->
+<!--            })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                chatBox.innerHTML += `<p class='bot-message'><b>AI:</b> ${data.response}</p>`;-->
+<!--                chatBox.scrollTop = chatBox.scrollHeight;-->
+<!--            })-->
+<!--            .catch(error => console.error("Error:", error));-->
+
+<!--            document.getElementById("user-input").value = "";-->
+<!--        }-->
+
+<!--        function handleKeyPress(event) {-->
+<!--            if (event.key === "Enter") {-->
+<!--                sendMessage();-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+<!--dhruval final-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ADIT Student Chatbot</title>
+    <link rel="icon" href="C:\Users\HP\PycharmProjects\cbot\chatbot_project\chatbot\static\Img\logo2.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=send" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            background: url('/static/img/AD-Patel-Institute-of-Technology-Campus 1.jpeg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 500px;
+            background: #f5f5dc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .chat-box {
+            border: 1px solid black;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            padding: 8px 12px;
+            border-radius: 5px;
+            max-width: 80%;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-message {
+            background: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background: #faebd7;
+            color: black;
+            align-self: flex-start;
+        }
+
+        .timestamp {
+            font-size: 10px;
+            color: black;
+            margin-left: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background: gray;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+
+        .typing {
+            color: gray;
+            font-style: italic;
+        }
+
+        h2 {
+            text-align: center;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 img {
+            height: 40px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <h2><img src="/static/img/logo2.ico" alt="College Logo">Student Chatbot</h2>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()"><span class="material-symbols-outlined">send</span></button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value.trim();
+            if (!userInput) return;
+
+            let chatBox = document.getElementById("chat-box");
+
+            // Add user message
+            chatBox.innerHTML += `<div class='message user-message'>${userInput} <span class="timestamp">${getTime()}</span></div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Show typing indicator
+            chatBox.innerHTML += `<div id="typing" class='typing'>Bot is typing...</div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            fetch("/api/chatbot/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userInput }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove typing indicator
+                document.getElementById("typing").remove();
+
+                // Add bot response
+                chatBox.innerHTML += `<div class='message bot-message'>${data.reply} <span class="timestamp">${getTime()}</span></div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            })
+            .catch(error => {
+                document.getElementById("typing").remove();
+                chatBox.innerHTML += `<div class='message bot-message'>Error: Could not reach chatbot.</div>`;
+            });
+
+            document.getElementById("user-input").value = "";
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        function getTime() {
+            let now = new Date();
+            return now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
+        }
+        document.getElementById("chatbot-response").innerHTML = response;
+
+    </script>
+</body>
+</html>
